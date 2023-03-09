@@ -13,6 +13,7 @@ public class ManufacturersTest {
     private static final String NAME_MANUFACTURERS_PATTERN = "//input[@value='%s']/following-sibling::span";
     private static final String PRODUCT_NAME_ACTUAL_PATTERN = "//input[@value='%s']";
 
+
     @BeforeEach
     public void init() {
         System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe");
