@@ -71,6 +71,24 @@ public class ManufacturersTest {
         Assertions.assertTrue(expectedThirdManufacturers);
     }
 
+    @Test
+    public void test() {
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 250)");
+        driver.findElement(By.cssSelector(".schema-filter-control__item")).click();
+
+        driver.findElement(By.xpath(String.format(NAME_MANUFACTURERS_PATTERN, "tefal"))).click();
+        driver.findElement(By.xpath(String.format(NAME_MANUFACTURERS_PATTERN, "first"))).click();
+        driver.findElement(By.xpath(String.format(NAME_MANUFACTURERS_PATTERN, "babyliss"))).click();
+
+        boolean expectedFirstManufacturers = driver.findElement(By.xpath(String.format(PRODUCT_NAME_ACTUAL_PATTERN, "tefal"))).isSelected();
+        boolean expectedSecondManufacturers = driver.findElement(By.xpath(String.format(PRODUCT_NAME_ACTUAL_PATTERN, "first"))).isSelected();
+        boolean expectedThirdManufacturers = driver.findElement(By.xpath(String.format(PRODUCT_NAME_ACTUAL_PATTERN, "babyliss"))).isSelected();
+
+        Assertions.assertTrue(expectedFirstManufacturers);
+        Assertions.assertTrue(expectedSecondManufacturers);
+        Assertions.assertTrue(expectedThirdManufacturers);
+    }
+
     @AfterEach
     public void tearDown() {
         driver.quit();
