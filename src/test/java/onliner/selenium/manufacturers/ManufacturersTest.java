@@ -1,7 +1,9 @@
 package onliner.selenium.manufacturers;
 
-import org.junit.jupiter.api.*;
-
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,7 +22,7 @@ public class ManufacturersTest {
         driver = new ChromeDriver();
         driver.get("https://onliner.by");
         driver.findElement(PRODUCT_NAME_PATTERN).click();
-        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 250)");
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 500)");
     }
 
     @Test
@@ -73,7 +75,6 @@ public class ManufacturersTest {
 
     @Test
     public void test() {
-        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 250)");
         driver.findElement(By.cssSelector(".schema-filter-control__item")).click();
 
         driver.findElement(By.xpath(String.format(NAME_MANUFACTURERS_PATTERN, "tefal"))).click();
